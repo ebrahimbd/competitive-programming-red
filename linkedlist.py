@@ -1,41 +1,38 @@
 class Node:
     def __init__(self,data):
-        self.data = data
-        self.ref = None
+        self.data=data
+        self.ref=None
 
-    # def tree(self):
-    #     print(self.data)
-    #     print(self)
-
-
-class LinkedList:
+class Linkedlist:
     def __init__(self):
-        self.head = None
+        self.head=None
 
-    def addelement(self, data):
-        newnode=Node(data)
-        newnode.ref=self.head
-        self.head=newnode
+    def addlinkedlist(self,data):
+        newno=Node(data)
+        newno.ref=self.head
+        self.head=newno
 
-    
-    def print_LL(self):
+    def printnode(self):
         if self.head is None:
-            print("Linked list is empty!")
+            print("empty")
         else:
-            n = self.head
-            while n is not None:
-                print(n.data)
-                n = n.ref
+            val=self.head
+            while val is not None:
+                print(val.data)
+                val=val.ref #when it none than auto stop
+    def search(self, data):
+        val=self.head
+        if val.data==data:
+            print("we got value ====", val.data)
+        else:
+            print("not value find")
+            # newno=Node(data)
+            # newno.ref=self.head 
+            # self.head=newno
+                
 
- 
-
-ll=LinkedList()    
-ll.addelement(3333)
-ll.addelement(44)
-ll.addelement(55)
-ll.print_LL()
-# node2=node1.tree()
-
-# print("====================")
-# jj=node1.ref=ll.head 
-# print(jj)
+no=Linkedlist()
+for i in range(5):
+   no.addlinkedlist(i)
+no.search(45)
+no.printnode()   
