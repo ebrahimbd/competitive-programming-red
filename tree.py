@@ -1,30 +1,50 @@
-class head:
+class Head:
 
     def __init__(self, key):
         self.key=key
         self.leftnode=None
         self.rightnode=None
 
-    def inset(self, data):
+    def insert(self, data):
         if self.key is None:
             self.key=data
+            print("if self.key is None:")
+            print(self.key)
             return
         if self.key==data:
+            print("self.key==data")
+            print(self.key)
             return
         if self.key > data:
             if self.leftnode:
+                print("self.leftnode")
                 self.leftnode.insert(data)
+                print((self.leftnode.insert(data)))
             else:
-                self.leftnode=head(data)
+                print("self.leftnode=Head(data)")
+                self.leftnode=Head(data)
+                print((self.leftnode.key))
         else:
             if self.rightnode:
+                print("self.rightnode:")
                 self.rightnode.insert(data)
+                print((self.rightnode.insert(data)))
             else:
-                self.rightnode=head(data)
+                print("self.rightnode=Head(data)")
+                self.rightnode=Head(data)
+                print((self.rightnode.key))
 
-        print(self.key)
+         
 
-n1=head(10)
-n1.inset(55)
+root=Head(10)
 
-print("dfdsfdsfdsf")
+list=[6,2,10,9,98]
+for i in list:
+    root.insert(i)
+
+
+
+ 
+
+
+
