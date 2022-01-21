@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Dec  7 11:44:06 2021
-@author: ebrahim
+\\\@author: ebrahim
 """
-
 nodes = []
 graph = []
 
