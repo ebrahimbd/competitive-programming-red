@@ -27,13 +27,15 @@ class Head:
             else:
                 print("self.rightnode=Head(data)")
                 self.rightnode=Head(data)
-        while(self):
-            print(self.key)
+       
             
         
 
 root=Head(99)
 list=[6,2,10,9,98]
+
+
+ 
 for i in list:
     root.insert(i)
 
