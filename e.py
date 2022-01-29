@@ -65,7 +65,15 @@ class Head:
         if self.rchild:
             self.rchild.postorder()
         print("this is postorder  left right root  =[%s] "%self.key)
-      
+ 
+    def find_min(self):
+        if self.lchild  is None:
+            print("/////=",self.key)
+            return self.key
+        return self.lchild.find_min()
+
+
+       
  
 
     def delete(self, data):
@@ -93,31 +101,33 @@ class Head:
                 node=self.lchild 
                 self=None
                 return node
+            
+            min=self.rchild.find_min()
+            print("=======%s====="%min)
+            
+            print("=======%s====="%self.key)
+            self.key=min
+            self.rchild=self.rchild.delete(min)
+            
                 
-            node = self.rchild 
-            print(node)
-            while node.lchild :
-                print(self.key)
-                node=node.lchild 
-            self.key=node.key
-            self.rchild=self.rchild.delete(node.key)
+            # node = self.rchild 
+            # print(node)
+            # while node.lchild :
+            #     print(self.key)
+            #     node=node.lchild 
+            # self.key=node.key
+            # self.rchild=self.rchild.delete(node.key)
             
         return self
         
     
-    def find_min(self):
-        if self.lchild  is None:
-            return self.key
-        return self.lchild.find_min()
-
-
-                   
+            
 a=Head(49)
-list=[1,2,5,3,6,4]
+list=[15, 10, 20, 8, 12, 18,19, 25]
 for i in list:
     # a.search(i)
     a.insert(i)
-a.delete(5)
+a.delete(15)
     
 print("=================")
 a.preorder()
@@ -125,6 +135,7 @@ print("=================")
 a.inorder()
 print("=================")
 a.postorder()
+
 
 print(" the min = %s value "%a.find_min())
 
