@@ -33,13 +33,15 @@ class Head:
 
 root=Head(99)
 list=[6,2,10,9,98]
-
 for i in list:
     root.insert(i)
-
-
-
- 
-
+    
+    
+    
+    
+root=Head(99)
+list=[6,2,10,9,98]
+for i in list:
+    root.insert(i)                            
 
 
