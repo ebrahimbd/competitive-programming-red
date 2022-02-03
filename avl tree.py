@@ -135,3 +135,141 @@ Tree.preorder(rt)
 rt = Tree.delete(3, rt)
 print("PREORDER")
 Tree.preorder(rt)
+
+
+
+
+
+
+# another way 
+
+
+import sys
+class treeroot(object):
+def __init__(self, key):
+self.key = key
+self.left = None
+self.right = None
+self.height = 1
+class avl(object):
+definsrtnode(self, root, key):
+if not root:
+return treeroot(key)
+elif key <root.key:
+root.left = self.insrtnode(root.left, key)
+else:
+root.right = self.insrtnode(root.right, key)
+root.height = 1 + max(self.getHeight(root.left),
+self.getHeight(root.right))
+balanceFactor = self.getBalance(root)
+if balanceFactor> 1:
+if key <root.left.key:
+return self.RR(root)
+else:
+root.left = self.LR(root.left)
+return self.RR(root)
+if balanceFactor< -1:
+if key >root.right.key:
+return self.LR(root)
+else:
+root.right = self.RR(root.right)
+return self.LR(root)
+return root
+defdelnode(self, root, key):
+if not root:
+return root
+elif key <root.key:
+root.left = self.delnode(root.left, key)
+elif key >root.key:
+root.right = self.delnode(root.right, key)
+else:
+if root.left is None:
+temp = root.right
+root = None
+return temp
+elifroot.right is None:
+temp = root.left
+root = None
+return temp
+temp = self.getMinValueNode(root.right)
+root.key = temp.key
+root.right = self.delnode(root.right,
+temp.key)
+if root is None:
+return root
+root.height = 1 + max(self.getHeight(root.left),
+self.getHeight(root.right))
+bf = self.getBalance(root)
+if bf > 1:
+if self.getBalance(root.left) >= 0:
+return self.RR(root)
+else:
+root.left = self.LR(root.left)
+return self.RR(root)
+if bf < -1:
+if self.getBalance(root.right) <= 0:
+return self.LR(root)
+else:
+root.right = self.RR(root.right)
+return self.LR(root)
+return root
+def LR(self, z):
+y = z.right
+T2 = y.left
+y.left = z
+z.right = T2
+z.height = 1 + max(self.getHeight(z.left),
+self.getHeight(z.right))
+y.height = 1 + max(self.getHeight(y.left),
+self.getHeight(y.right))
+return y
+def RR(self, z):
+y = z.left
+T3 = y.right
+y.right = z
+z.left = T3
+z.height = 1 + max(self.getHeight(z.left),
+self.getHeight(z.right))
+y.height = 1 + max(self.getHeight(y.left),
+self.getHeight(y.right))
+return y
+defgetHeight(self, root):
+if not root:
+return 0
+return root.height
+defgetBalance(self, root):
+if not root:
+return 0
+return self.getHeight(root.left) - self.getHeight(root.right)
+defgetMinValueNode(self, root):
+if root is None or root.left is None:
+return root
+return self.getMinValueNode(root.left)
+defpreOrder(self, root):
+if not root:
+return
+print("{0} ".format(root.key), end="")
+self.preOrder(root.left)
+self.preOrder(root.right)
+defprintHelper(self, currPtr, indent, last):
+if currPtr != None:
+sys.stdout.write(indent)
+if last:
+sys.stdout.write("R----")
+indent += "     "
+else:
+sys.stdout.write("L----")
+indent += "|    "
+print(currPtr.key)
+self.printHelper(currPtr.left, indent, False)
+self.printHelper(currPtr.right, indent, True)
+myTree = avl()
+root = None
+nums = [95, 45, 27, 19, 71, 10, 68, 34] for num in nums:
+root = myTree.insrtnode(root, num)
+print("After insertion: ")
+myTree.printHelper(root, "", True)
+key = 45
+root = myTree.delnode(root, key)
+print("After Deletion: ")
+myTree.printHelper(root, "", True)
