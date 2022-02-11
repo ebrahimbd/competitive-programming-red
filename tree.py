@@ -23,28 +23,16 @@ class Head:
                 self.right=Head(data)
                 
     def diameterOfBinaryTree(self, root):
-        tree=root
-        longestDiameter = [0]
-        longestDiameter[0]=self.binaryTreeHelper(tree.left, longestDiameter )
-        return longestDiameter[0]
-    	
-    def binaryTreeHelper(self, tree, longestDiameter):
-            dia=0
-            if tree.left is not None:
-                while tree.left:
-                    dia+=1
-                    if tree.right is None:
-                        return binaryTreeHelper(self, tree, longestDiameter)  
-                        
-            elif tree.right is not None:
-                while tree.right:
-                    dia+=1
-                    if tree.right is None:
-                       return  binaryTreeHelper(self, tree, longestDiameter)  
-                        
-         
-            return dia
-            
+        sum=[0]
+        def dfs(root):
+            if root is None:
+                return 0
+            left=dfs(root.left)
+            right=dfs(root.right)
+            sum[0]=max(sum[0], left+right)
+            return 1+max(left, right)
+        dfs(root)
+        return sum[0]
             
         # if tree.right is None:
         #     return 0
@@ -63,7 +51,7 @@ class Head:
             
         
 root=Head(99)
-list1=[1,2,3,4,5]
+list1=[1,2,3]
 for i in list1:
     root.insert(i)
 
@@ -73,4 +61,3 @@ print(root.diameterOfBinaryTree(root))
 
  
  
-
