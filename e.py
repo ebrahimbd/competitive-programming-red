@@ -1,9 +1,9 @@
 class Head:
 
     def __init__(self, key):
-          self.key=key 
-          self.lchild=None
-          self.rchild=None
+        self.key=key 
+        self.lchild=None
+        self.rchild=None
     
     def insert(self, data):
         if self.key is None:
@@ -138,10 +138,6 @@ a.postorder()
 
 
 print(" the min = %s value "%a.find_min())
-
- 
- 
-
 
 
 
