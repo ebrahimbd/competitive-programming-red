@@ -2,22 +2,32 @@
 using namespace std;
 
 int main(){
-    int coin, amount;
-    cin>>coin;
-    cin>>amount;
-    int  a[coin][amount]={};
+    int arr[4] = {1, 5, 7, 9};
+
+    int x ,y;
+    int coin = 4;
+    int amount = 12;
+    int  a[coin][amount];
+
+
     for (int i=0; i<=coin; i++){
         for (int j=0; j<=amount; j++){
-            a[i][j]=5;
             a[0][j]=j;
-            a[i][0]=amount;
-           
+
+             if (arr[i]>j){
+                 a[i][j]=a[i-1][j];
+             }
+             else{
+                 a[i][j]=min(a[i-1][j], 1+a[i][j-arr[i]]);
+             }
         }
     }
+
     for (int i=0; i<=coin; i++){
         for (int j=0; j<=amount; j++){
            cout<<"_"<< a[i][j]<<"|";
         }
         cout<<""<<endl;
     }
+    return 0;
 }
