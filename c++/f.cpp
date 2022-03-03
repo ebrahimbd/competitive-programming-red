@@ -1,30 +1,37 @@
+#include <bits/stdc++.h>
 #include <iostream>
-#include <string>
 using namespace std;
 
-class MyClass {       // The class
-  public:             // Access specifier
-    int myNum;        // Attribute (int variable)
-    string myString;
- 
-    void a(){
-        for (int i=0; i<99; i++){
-            cout<< i<<" ebrahim\n";
-        }
-    };
-    // Attribute (string variable)
+class eb{
+public:
+    string ab="dsjflkdsfj";
+    int key=903;
+
+
 };
 
-int main() {
-  MyClass myObj;  // Create an object of MyClass
 
-  // Access attributes and set values
-  myObj.myNum = 15;
-  myObj.myString = "Some text";
-  myObj.a();
-  // Print values
-  cout << myObj.myNum << "\n"; 
-  cout << myObj.myString; 
-  return 0;
+int main()
+{
+
+vector <int>v;
+eb e, *g=&e;
+
+string vv=g->ab;
+
+cout << vv<<endl;
+cout <<g->key;
+
+for (int i=0; i<2; i++){
+    v.push_back(i);
 }
 
+
+
+
+	for (int i:v)
+        cout<<"\n"<<i;
+
+
+	return 0;
+}
