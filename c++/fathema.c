@@ -2,21 +2,21 @@
 #include<stdbool.h>
 
 int main() {
-    bool haha=false;
+    int k=0;
     int rows;
     printf("N=\n");
     scanf("%d", &rows);
 
     for (int i = 0; i < rows; i++) {
-        if(haha==false){
+        if(k==0){
             for (int j = 0; j <=i; j++) {
                 printf("#");
-                haha=true;
+                k=1;
                 }
             }else
             for (int j = 0; j <=i; j++) {
                 printf("*");
-                haha=false;
+                k=0;
                 }
             printf("\n");
     }
