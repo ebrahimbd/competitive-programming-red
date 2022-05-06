@@ -33,7 +33,6 @@ def marge(left, right, arr):
         
         
     while i < len(left):
-        print("==========")
         print(left[i])
         arr[k] = left[i]
         i+=1
