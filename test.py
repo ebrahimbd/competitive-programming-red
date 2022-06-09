@@ -24,3 +24,44 @@ if not is_pm and time_list[0] == 12:
 
 print(':'.join(map(lambda x: str(x).rjust(2, '0'), time_list)))
 
+
+
+
+
+class ebra:
+    def __innt__(self, a):
+        self.a=a
+    
+    def age(self):
+        print("its worke")
+        
+class saleh(ebra):
+    def __int__(self, ha):
+        self.ha=ha
+        super().__init__()
+        
+    def call(self):
+        self.age()
+        
+        
+
+saleh().age()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
