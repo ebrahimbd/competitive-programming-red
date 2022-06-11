@@ -45,23 +45,42 @@ class saleh(ebra):
         
         
 
-saleh().age()
+saleh().call()
+
+
+
+a=[1,2,3,4]
+b=[sum(a[0:x+1]) for x in range(0, len(a))]
+print(b)
+
+f=None
+for i in range(5):
+    with open("aaa.log", "w") as f:
+        if i<2:
+            break
+
+print(f.closed)
+
+f=[1,2]
+f1=[12,3]
+print(f==f1)
+print(set(f)==set(f1))
 
 
 
 
+data=[1, 2,3]
+def incr(x):
+    return x+1
+
+print(list(map(incr, data)))
+
+print(2**(3**2))
 
 
 
+import re
+d=re.findall('welcome', 'welcome', )
+print(d)
 
-
-
-
-
-
-
-
-
-
-
-
+ 
