@@ -12,11 +12,7 @@ string *b=&a;
 
 string *bb=b;
 
-
-
 cout<<*bb;
-
-
     for(int i=0;i<100; i++){
         eb.push_back(i);
     }
