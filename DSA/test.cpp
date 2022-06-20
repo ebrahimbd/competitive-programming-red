@@ -1,13 +1,12 @@
- 
+
 #include<iostream>
 using namespace std;
- 
+
 struct Node{
 	int data;
 	Node *left;
 	Node *right;
 	};
-
 
 Node * Newnode(int data){
 	Node * node=new Node();
@@ -15,7 +14,7 @@ Node * Newnode(int data){
 	node->left=node->right=NULL;
 	return node;
 	}
-
+ 
 
 Node * insert(Node *passroot, int data){
 	if(passroot == NULL){
@@ -32,14 +31,11 @@ Node * insert(Node *passroot, int data){
 	return passroot;
 	}
 	
-	
 
 int main(){
 	Node *root=NULL;
-	 
 	root=insert(root, 44);
 	root=insert(root, 4);
 	root=insert(root, 89);
-	
 	}
 

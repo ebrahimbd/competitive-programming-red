@@ -8,9 +8,9 @@ int main()
 {
     /*
     Below we initialize a 2D vector
-    named "vect" on line 12 and then
-    we declare the values on
-    line 14, 15 and 16 respectively.
+    named "vect" on line 12and then
+    we declare the values onon line 12and then
+    linRRRRRRRrrrrrrrrrrrrRRRRively.
     */
      
     vector<vector<int>> vect
@@ -26,7 +26,12 @@ int main()
     14, 15 and 16 using a simple
     nested for loop.
     */
-     
+    int i=209;
+    int j=0;
+    while (j<=i){
+        cout<<i<<endl;
+     j+=1;
+    } 
     for (int i = 0; i < vect.size(); i++)
     {
         for (int j = 0; j < vect[i].size(); j++)

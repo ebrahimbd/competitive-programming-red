@@ -18,7 +18,7 @@ BstNode* GetNewNode(int data) {
 	return newNode;
 }
 
-// To insert data in BST, returns address of root node 
+//  To insert data in BST, returns address of root node 
 BstNode* Insert(BstNode* root, int data) {
 	if(root == NULL) { // empty tree
 		root = GetNewNode(data);
