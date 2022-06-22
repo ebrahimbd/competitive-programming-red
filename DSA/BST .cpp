@@ -1,68 +1,111 @@
+// Binary Search Tree operations in C++
 
-// Binary Search Tree - Implemenation in C++
-// Simple program to create a BST of integers and search an element in it 
-#include<iostream>
+#include <iostream>
 using namespace std;
-//Definition of Node for Binary search tree
-struct BstNode {
-	int data; 
-	BstNode* left;
-	BstNode* right;
+
+struct node {
+  int key;
+  struct node *left, *right;
 };
 
-// Function to create a new Node in heap
-BstNode* GetNewNode(int data) {
-	BstNode* newNode = new BstNode();
-	newNode->data = data;
-	newNode->left = newNode->right = NULL;
-	return newNode;
+// Create a node
+struct node *newNode(int item) {
+  struct node *temp = new node();
+  temp->key = item;
+  temp->left = temp->right = NULL;
+  return temp;
 }
 
-//  To insert data in BST, returns address of root node 
-BstNode* Insert(BstNode* root, int data) {
-	if(root == NULL) { // empty tree
-		root = GetNewNode(data);
-	}
-	// if data to be inserted is lesser, insert in left subtree. 
-	else if(data <= root->data) {
-		root->left = Insert(root->left,data);
-	}
-	// else, insert in right subtree. 
-	else {
-		root->right = Insert(root->right,data);
-	}
-	return root;
-}
-//To search an element in BST, returns true if element is found
-bool Search(BstNode* root,int data) {
-	if(root == NULL) {
-		return false;
-	}
-	else if(root->data == data) {
-		return true;
-	}
-	else if(data <= root->data) {
-		return Search(root->left,data);
-	}
-	else {
-		return Search(root->right,data);
-	}
+// Inorder Traversal
+void inorder(struct node *root) {
+  if (root != NULL) {
+    // Traverse left
+    inorder(root->left);
+
+    // Traverse root
+    cout << root->key << " -> ";
+
+    // Traverse right
+    inorder(root->right);
+  }
 }
 
+// Insert a node
+node *insert(node *node, int key) {
+  // Return a new node if the tree is empty
+  if (node == NULL) return newNode(key);
+
+  // Traverse to the right place and insert the node
+  if (key < node->key)
+    node->left = insert(node->left, key);
+  else
+    node->right = insert(node->right, key);
+
+  return node;
+}
+
+// Find the inorder successor
+ node *minValueNode(node *node) {
+  struct node *current = node;
+
+  // Find the leftmost leaf
+  while (current && current->left != NULL)
+    current = current->left;
+
+  return current;
+}
+
+// Deleting a node
+ node *deleteNode(struct node *root, int key) {
+  // Return if the tree is empty
+  if (root == NULL) return root;
+
+  // Find the node to be deleted
+  if (key < root->key)
+    root->left = deleteNode(root->left, key);
+  else if (key > root->key)
+    root->right = deleteNode(root->right, key);
+  else {
+    // If the node is with only one child or no child
+    if (root->left == NULL) {
+      struct node *temp = root->right;
+      free(root);
+      return temp;
+    } else if (root->right == NULL) {
+      struct node *temp = root->left;
+      free(root);
+      return temp;
+    }
+
+    // If the node has two children
+    struct node *temp = minValueNode(root->right);
+
+    // Place the inorder successor in position of the node to be deleted
+    root->key = temp->key;
+
+    // Delete the inorder successor
+    root->right = deleteNode(root->right, temp->key);
+  }
+  return root;
+}
+
+// Driver code
 int main() {
-	BstNode* root = NULL;  // Creating an empty tree
-	/*Code to test the logic*/
-	root = Insert(root,15);	
-	root = Insert(root,10);	
-	root = Insert(root,20);
-	root = Insert(root,25);
-	root = Insert(root,8);
-	root = Insert(root,12);
-	// Ask user to enter a number.  
-	int number;
-	cout<<"Enter number be searched\n";
-	cin>>number;
-	//If number is found, print "FOUND"
-	if(Search(root,number) == true) cout<<"Found\n";
-	else cout<<"Not Found\n";
+  struct node *root = NULL;
+  root = insert(root, 8);
+  root = insert(root, 35);
+  root = insert(root, 35);
+  root = insert(root, 6);
+  root = insert(root, 7);
+  root = insert(root, 10);
+  root = insert(root, 14);
+  root = insert(root, 4);
+
+  cout << "Inorder traversal: ";
+  inorder(root);
+
+  cout << "\nAfter deleting 10\n";
+  root = deleteNode(root, 10);
+  cout << "Inorder traversal: ";
+  inorder(root);
 }

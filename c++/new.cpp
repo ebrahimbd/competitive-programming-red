@@ -51,37 +51,70 @@ bool search(Node * root, int data){
 		  return search(root->left, data);
 	   }
 	};
+
+std::vector<int > in;
+
+void inorder(Node * root){
+	if (root==NULL){
+		return ;
+	};
+	inorder(root->left);
+	in.push_back(root->data);
+	inorder(root->right);
+	}
  
 
 void postorder(Node * root){
 	  if (root==NULL){
 		  return ;
 	  }
-	  postorder(root->left);
-	  v.push_back(root->data);
 	  postorder(root->right);
+	  v.push_back(root->data);
+	  postorder(root->left);
 	  
 	};
+
+int i=0;
+
+void minValue(Node * current)
+{
+ 
+/* loop down to find the leftmost leaf */
+while (current->left != NULL)
+{
+    current = current->left;
+}
+std::cout<<"\n Minimum value in BST is "<<current->data<<"\n";
+
+}
+
 
 
 int main(){
     Node *ami=NULL;
-    ami=insert(ami, 5);
-    ami=insert(ami, 400);
-    ami=insert(ami, 100);
-    ami=insert(ami, 100);
-    ami=insert(ami, 600);
-
+    ami=insert(ami, 50);
+    ami=insert(ami, 30);
+    ami=insert(ami, 20);
+    ami=insert(ami, 40);
+    ami=insert(ami, 70);
+    ami=insert(ami, 10);
+    
+    inorder(ami);
     postorder(ami);
     
     for(int i: v){
 		std::cout<<i<<"\n";
 	}
-   
+    for(int i: in){
+		std::cout<<"==";
+		std::cout<<i<<"\n";
+	}
+	
     if(search(ami, 400) == true) {
 		std::cout<<"Found\n";
 		}
 	else{
-		 std::cout<<"Not Found\n";
+		 std::cout<<"Not Found the value ="<<400<<"\n";
 		 }
+    minValue(ami);
 }
