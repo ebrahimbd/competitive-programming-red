@@ -34,6 +34,5 @@ vector <int > v{ 2, 5, 4, 10, 40 };
  sort(v.begin(), v.end());
  
 	recursion(v, 0, (v.size()), 5);
-
 	return 0;
 }
