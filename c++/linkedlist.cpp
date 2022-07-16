@@ -7,25 +7,45 @@ struct Node{
     Node *link;
 };
 
+struct Node * head;
 
-Node * insert(Node *nodes, int data){
-    Node *node=new Node();
-    if (node==NULL){
-        return node;
-    }else{
-        node->key=data;
-        node->link=insert(nodes, data);
-        return nodes;
-    }
-return node;
-};
-
-void  print(Node *node){
-    cout<<node->key<<endl;
+void insert(int value){
+    Node *temp=new Node();
+    temp->key=value;
+    temp->link=head;
+    head=temp;
 }
 
+void print(){
+    Node * temp =head;
+    cout<<"ggggg";
+    while(temp!=NULL){
+        cout<<"->";
+        cout<<temp->key;
+        temp=temp->link;
+    }
+}
 
+Node * call(Node *node, int data){
+cout<<"==-------------==";
+    node->key=data;
+    node->link=node;
+    return node;
+}
+
+void my(){
+    Node * tree=new Node();
+
+    while(tree!=NULL){
+        cout<<tree->key;
+        tree=tree->link;
+    }
+}
 
 int main(){
-    cout<<"sdljkfldkf";
+    Node *ami=new Node();
+    ami=call(ami, 44);
+    ami=call(ami, 77);
+    ami=call(ami, 99);
+    my();
 }
