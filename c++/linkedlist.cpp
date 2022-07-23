@@ -16,7 +16,7 @@ void insert(int value){
     head=temp;
 }
 
-void print(){
+void printf(){
     Node * temp =head;
     cout<<"ggggg";
     while(temp!=NULL){
@@ -26,26 +26,34 @@ void print(){
     }
 }
 
-Node * call(Node *node, int data){
-cout<<"==-------------==";
-    node->key=data;
-    node->link=node;
+Node *addnode(Node *node, int data){
+    if(node==NULL){
+        Node *newnode=new Node();
+        newnode->key=data;
+        newnode->link=NULL;
+        return newnode;
+    }else{
+        node->link=addnode(node->link, data);
+    }
     return node;
 }
 
-void my(){
-    Node * tree=new Node();
-
-    while(tree!=NULL){
-        cout<<tree->key;
-        tree=tree->link;
+void print(Node *node){
+    if(node==NULL){
+        cout<<"NULL";
+        return;
     }
+    cout<<node->key<<"->";
+    print(node->link);
 }
 
 int main(){
-    Node *ami=new Node();
-    ami=call(ami, 44);
-    ami=call(ami, 77);
-    ami=call(ami, 99);
-    my();
+    Node *ami=NULL;
+    ami=addnode(ami, 33);
+    ami=addnode(ami, 3333);
+    for(int i=99; i<=555; i++){
+        ami=addnode(ami, i);
+    }
+
+    print(ami); 
 }
