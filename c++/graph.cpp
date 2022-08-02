@@ -27,15 +27,19 @@ void print_graph(vector <int> g[], int vertex){
 }
 
 bool vis[N];
+vector <int> temp;
+vector <vector<int>> cc;
+
 
 void dfs(int vertex){
     if (vis[vertex]){
-        cout<<"visit node "<<vertex <<" is true so return "<<"parent node"<<endl;
+    // cout<<"visit node "<<vertex <<" is true so return "<<"parent node"<<endl;
         return;
     }
     vis[vertex]=true;
+    temp.push_back(vertex);
     for(int child : g[vertex]){
-    cout<<"visit node-"<<vertex<<"-child->"<<child<<"<-node  so call  "<<"dfs("<<child<<")"<<endl;
+    // cout<<"visit node-"<<vertex<<"-child->"<<child<<"<-node  so call  "<<"dfs("<<child<<")"<<endl;
         dfs(child);
     }
 }
@@ -47,8 +51,25 @@ int main(){
     insert_graph(g, edge);
     print_graph(g, vertex);
     cout<<endl;
-    dfs(1); 
-    cout<<endl; 
+
+    int loop=0;
+    for(int i=1; i<=vertex; i++){
+       if(vis[i]) continue; 
+      temp.clear();
+      dfs(i);
+      cc.push_back(temp);
+      loop++;
+    }
+
+    cout<<loop<<endl;
+
+    for(auto i: cc){
+        for(auto j: i){
+            cout<<j<<"";
+        }
+        cout<<endl;
+    }
+
 
     return 0;
 }

@@ -43,23 +43,23 @@ void delete_node(int n){
     free(temp2);
 };
 
-
 void node_insert_n_position(int n, int data){
-    Node *temp=head;
+
     if(n==1){
         temp->data=data;
+        for (int i=0; i<n-2; i++){
         temp->next=head;
         head=temp;
+        Node *temp=head;
         return;
     }
 
-    for (int i=0; i<n-2; i++){
         temp=temp->next;
     }
-    Node *newnode=new Node();
     newnode->data=data;
     newnode->next=temp->next;
     temp->next=newnode;
+    Node *newnode=new Node();
 }
 
 
