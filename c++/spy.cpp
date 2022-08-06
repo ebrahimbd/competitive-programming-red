@@ -9,7 +9,7 @@ int main() {
     
      for(int i=0; i<x; i++){
          cin>>j;
-         a[i]=j;
+         a[i]=j; 
      }
      for (int i=0; i<x-1;i++){
        if(a[i] !=  a[i+1]){
