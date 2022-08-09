@@ -17,16 +17,20 @@ int main(){
     int num, indx;
     cin>>num>>indx;
     // cout<<(num&(num<<indx))<<endl;
-    bin(9);
-     cout<<(1<<indx)<<endl;
-      bin(num);
-      bin(indx);
+   //   bin(9);
+    // cout<<(1<<indx)<<endl;
+  //    bin(num);
+//      bin(indx);
       cout<<"-----------"<<endl;
-      int b=(num&(num<<indx));
-     bin(b);
+        int c=(num<<indx);
+        cout<<c<<endl;
+        bin(c);
+        cout<<endl;
+         int b=(num&(num<<indx));
+         bin(b);
 
-      cout<<"========"<<endl;
-      int s=(num|(1<<indx));
+      cout<<"====kkkkk==="<<endl;
+      int s=(num | (1<<indx));
       int u=(num & (~(1<<indx)));
 
       cout<<s<<endl;
