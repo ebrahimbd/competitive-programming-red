@@ -5,18 +5,24 @@ Created on Thu Jun 16 03:31:26 2022
 
 @author: ebrahim
 """
-n=int(input())
-#This code gives nth number in fibonacci series - {0,1,1,2,3,5,......}.
-def fibonacci(n, f1, f2, after):
-    sum=0
-    while f1<=n:
-        sum=f1+sum
-        after= f1+f2
-        f1=f2
-        f2=after
-    return sum
- 
-if __name__ == "__main__":
-    print(fibonacci(n, 0, 1,after=0))
-  
-# This code is contributed by Manan Tyagi.
+items = [1,1,3,4,5]
+knapsack = []
+limit = 7
+
+def print_solutions(current_item, knapsack, current_sum):
+    #if all items have been processed print the solution and return:
+    if current_item == len(items):
+        print (knapsack)
+        return
+
+    #don't take the current item and go check others
+    print_solutions(current_item + 1, list(knapsack), current_sum)
+
+    #take the current item if the value doesn't exceed the limit
+    if (current_sum + items[current_item] <= limit):
+        knapsack.append(items[current_item])
+        current_sum += items[current_item]
+        #current item taken go check others
+        print_solutions(current_item + 1, knapsack, current_sum )
+
+print_solutions(0,knapsack,0)
