@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 #define ll   long long
-
+#define ld long double
 #define fastread()  (ios_base:: sync_with_stdio(false),cin.tie(NULL));
 using namespace std;
 
 int main(){
     fastread();
-    int N, W;
+    ll  N, W;
     cin>>N>>W;
     vector<ll>wi(N);
     vector<ll>val(N);
@@ -29,6 +29,8 @@ int main(){
     }
     cout<<k[N][W]<<endl;
 
+
+ /*
     cout<<endl;
    for(int i = 0; i <= N; i++)
     {
@@ -41,7 +43,7 @@ int main(){
      
 
    cout<<endl;
-/*
+
     int res = k[N][W];
     cout<< res << endl;
      
@@ -56,7 +58,7 @@ int main(){
         }
     }
 
-*/
+
 
    vector <int >ans;
    pair<int, int> list[N];
@@ -76,5 +78,7 @@ int v=k[N][W];
        cout<<i<<endl;
    }
 
+
+*/
     return 0;
 }
