@@ -1,10 +1,6 @@
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 1 1 1 
-0 1 1 1 1 1 1 1 
-0 1 1 1 1 1 1 1 
-0 1 1 2 2 2 2 2 
-0 1 1 2 2 3 3 3 
-0 1 1 2 2 3 3 4 
-
-LCS of AGGTAB and GXTXAYB is GTAB
-Shortest common supersequence  is GXTXAYB len is 7
+0----
+18
+0 0 0 0 
+0 0 6 18 
+0 0 0 24 
+0 0 0 0 
