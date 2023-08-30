@@ -17,6 +17,7 @@ int main(){
         for(int j=0; j<=sum; j++){
             if(i==0) dp[0][j]=0;
             else dp[i][0]=1;
+            
         }
     }
 
