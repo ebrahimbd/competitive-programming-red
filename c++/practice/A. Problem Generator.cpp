@@ -1,47 +1,31 @@
 #include<bits/stdc++.h>
 
-//https://codeforces.com/contest/1980/problem/A
-//3
-//10 1
-//BGECDCBDED
-//10 2
-//BGECDCBDED
-//9 1
-//BBCDEFFGG
-
 using namespace std;
 
-int main()
-{
+int main() {
     int t; // Number of test cases
     cin >> t;
 
-    while (t--)
-    {
-        int n, m; // Number of problems and number of upcoming rounds
-        cin >> n >> m;
-        string a; // String representing the difficulties of the problems
-        cin >> a;
-
-        unordered_map<char, int> frequencyMap;
-
-        for (char ebrahim : a)
-        {
-            frequencyMap[ebrahim]=frequencyMap[ebrahim]+1;
+    while (t--) {
+        int k, q; // Number of problems and number of upcoming rounds
+        cin >> k >> q;
+        vector<int>a(k);
+        for (int i=0; i<k; i++) {
+            cin>>a[i];
         }
-        int insert=0;
+        vector<int>n(q);
+        for (int i=0; i<q; i++) {
+            cin>>n[i];
+        }
 
-        for(const auto pair: frequencyMap)
-        {
-            if (pair.second < m)
-            {
-                insert+=m-pair.second;
+        for(auto &i: n) {
+            if(i<a[0]) {
+                cout<<i<<endl;
+            } else {
+                cout<<a[0]-1<<endl;
             }
-//       cout<<pair.first<<"-"<<pair.second<<endl;
         }
-//        cout<<insert<<endl;
-        int count_a=frequencyMap.size();
-        cout<<m*(7-count_a)+insert<<endl;
+
     }
 
     return 0;
